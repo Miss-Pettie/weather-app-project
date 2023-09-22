@@ -32,6 +32,12 @@ let dates = today.getDate();
 let year = today.getFullYear();
 let hour = today.getHours();
 let minutes = today.getMinutes();
+if (hour<0){
+  hour =` 0 ${hour}`;}
+  
+if (minutes<0){
+  minutes =`0 ${minutes}`;
+}
 now.innerHTML = `${days}</br> ${dates} ${month} ${year} </br> ${hour} : ${minutes}`;
 
 function showTemperature(response) {
@@ -75,7 +81,7 @@ function getCurrentLocation(event) {
   navigator.geolocation.getCurrentPosition(searchLocation);
 
   //let currentLocationButton = document.querySelector("#inlineFormInputGroupUsername");
-  //searchLocation(currentLocationButton.value);
+  //searchLocation(currentLocationButton.value
 }
 
 function degreeCelc() {
