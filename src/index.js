@@ -34,7 +34,7 @@ let hour = today.getHours();
 let minutes = today.getMinutes();
 if (hour<0){
   hour =` 0 ${hour}`;}
-  
+
 if (minutes<0){
   minutes =`0 ${minutes}`;
 }
@@ -52,11 +52,16 @@ function showTemperature(response) {
   );
   document.querySelector("#description").innerHTML =
     response.data.weather[0].description;
+
 }
+
+
 
 function searchCity(city) {
   let apiKey = "ce0282c2c853d472007f20d5c460d02c";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+ 
+ 
   axios.get(apiUrl).then(showTemperature);
 }
 let form = document.querySelector("#search-form");
@@ -73,15 +78,13 @@ function searchLocation(position) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showTemperature);
 }
+
 let locationButton = document.querySelector("#current-button");
 locationButton.addEventListener("click", getCurrentLocation);
 
 function getCurrentLocation(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(searchLocation);
-
-  //let currentLocationButton = document.querySelector("#inlineFormInputGroupUsername");
-  //searchLocation(currentLocationButton.value
 }
 
 function degreeCelc() {
@@ -97,4 +100,7 @@ function degreeFaren() {
 }
 let farenheitButton = document.querySelector("#farenheit-degree");
 farenheitButton.addEventListener("click", degreeFaren);
+
+let iconElement = document.querySelector("#icon");
+iconElement.setAttribute("src", `https://openweathermap.org/img/wn/10d@2x.png`);
 searchCity("Bulawayo");
