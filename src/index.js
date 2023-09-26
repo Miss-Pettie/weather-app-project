@@ -52,7 +52,8 @@ function showTemperature(response) {
   );
   document.querySelector("#description").innerHTML =
     response.data.weather[0].description;
-
+let iconElement = document.querySelector("#icon");
+iconElement.setAttribute("src", `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 }
 
 
@@ -101,6 +102,5 @@ function degreeFaren() {
 let farenheitButton = document.querySelector("#farenheit-degree");
 farenheitButton.addEventListener("click", degreeFaren);
 
-let iconElement = document.querySelector("#icon");
-iconElement.setAttribute("src", `https://openweathermap.org/img/wn/10d@2x.png`);
+
 searchCity("Bulawayo");
