@@ -18,7 +18,7 @@ p {
 }
 
 #description {
-    right: 60px;
+    right: 50px;
     top: 11px;
 }
 
@@ -36,11 +36,14 @@ p {
     font-size: 25px;
 }
 
-#style-temp {
-    padding-top: 55px;
+.temp-temp {
 
-    text-align: right;
+text-align: right;
+padding-top: 0;
+top:15px;
 }
+
+
 
 h5 {
     color: white;

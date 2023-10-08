@@ -41,6 +41,48 @@ if (minutes<10){
 }
 now.innerHTML = `${days}</br> ${dates} ${month} ${year} </br> ${hour} : ${minutes}`;
 
+function getForecast(coordinates){
+console.log(coordinates);
+
+ let apiKey = "ce0282c2c853d472007f20d5c460d02c";
+let apiUrl=`https://api.openweathermap.org/data/3.0/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+console.log(apiUrl);
+//axios.get(apiUrl).then(displayForecast);
+
+
+}
+function displayForecast(){
+
+let forecastElement=document.querySelector("#forecast");
+let forecastHTML="";
+let days=["Sunday" , "Monday", "Tuesday"];
+days.forEach(function (day) {
+forecastHTML= forecastHTML +
+
+`<div class="col">
+    <div class="card">
+  
+      <div class="card-body">
+        <h5 class="card-title">${day}</h5>
+
+        <span class="emoji">☀️</span>
+        <span class="temp">28&deg;/18&deg;</span>
+      </div>
+    </div>
+  </div>`;})
+
+  
+
+forecastElement.innerHTML=forecastHTML;
+
+
+
+
+
+
+}
+
+
 function showTemperature(response) {
   console.log(response.data);
   document.querySelector("#new-city").innerHTML = response.data.name;
@@ -55,6 +97,13 @@ function showTemperature(response) {
     response.data.weather[0].description;
 let iconElement = document.querySelector("#icon");
 iconElement.setAttribute("src", `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+
+
+
+
+
+getForecast(response.data.coord);
+
 }
 
 
@@ -105,3 +154,4 @@ farenheitButton.addEventListener("click", degreeFaren);
 
 
 searchCity("Bulawayo");
+displayForecast();
