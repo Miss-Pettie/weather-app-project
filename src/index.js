@@ -152,5 +152,5 @@ let farenheitButton = document.querySelector("#farenheit-degree");
 farenheitButton.addEventListener("click", degreeFaren);
 
 
-searchCity("Bulawayo");
+searchCity("BULAWAYO");
 displayForecast();

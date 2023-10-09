@@ -18,8 +18,10 @@ p {
 }
 
 #description {
-    right: 50px;
-    top: 11px;
+    right: 105px;
+    top: 25px;
+    position: fixed;
+    text-align: right;
 }
 
 #celcious-degree {
@@ -27,6 +29,9 @@ p {
     font-weight: bold;
     font-size: 25px;
     text-decoration: none;
+}
+#new-city{
+    font-weight: bolder;
 }
 
 #farenheit-degree {
@@ -38,9 +43,10 @@ p {
 
 .temp-temp {
 
-text-align: right;
-padding-top: 0;
-top:15px;
+text-align: left;
+top:40px;
+position: absolute;
+right:100px;
 }
 
 
