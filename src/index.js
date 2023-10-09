@@ -41,18 +41,9 @@ if (minutes<10){
 }
 now.innerHTML = `${days}</br> ${dates} ${month} ${year} </br> ${hour} : ${minutes}`;
 
-function getForecast(coordinates){
-console.log(coordinates);
 
- let apiKey = "ce0282c2c853d472007f20d5c460d02c";
-let apiUrl=`https://api.openweathermap.org/data/3.0/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
-console.log(apiUrl);
-//axios.get(apiUrl).then(displayForecast);
-
-
-}
-function displayForecast(){
-
+function displayForecast(response){
+//console.log(response.data);
 let forecastElement=document.querySelector("#forecast");
 let forecastHTML="";
 let days=["Sunday" , "Monday", "Tuesday"];
@@ -81,8 +72,16 @@ forecastElement.innerHTML=forecastHTML;
 
 
 }
+function getForecast(coordinates){
+console.log(coordinates);
+
+ let apiKey = "ce0282c2c853d472007f20d5c460d02c";
+let apiUrl=`https://api.openweathermap.org/data/3.0/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+console.log(apiUrl);
+axios.get(apiUrl).then(displayForecast);
 
 
+}
 function showTemperature(response) {
   console.log(response.data);
   document.querySelector("#new-city").innerHTML = response.data.name;
