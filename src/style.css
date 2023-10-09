@@ -16,7 +16,6 @@ p {
     position: fixed;
     padding: 20px;
 }
-
 #description {
     right: 105px;
     top: 25px;
@@ -90,12 +89,23 @@ h5 {
     font-weight: bold;
 }
 
+
 .temp {
     font-size: 25px;
     display: block;
-    padding-left: 20px;
+    padding-left: 50px;
     padding-top: 50px;
+    margin: 0;
+    font-weight: bold;
 }
+.temp-min {
+    font-size: 25px;
+    display: block;
+    padding-left: 50px;
+    padding-top: 20px;
+    font-weight: lighter;
+}
+
 
 #footer {
   position: absolute;
